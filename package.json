@@ -1,6 +1,6 @@
 {
-  "name": "archiver-promise",
-  "version": "1.0.2",
+  "name": "@trippel/archiver-promise",
+  "version": "1.0.3",
   "description": "Promise wrapper for archiver",
   "keywords": [
     "archiver",
