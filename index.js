@@ -7,9 +7,11 @@
 'use strict';
 
 var archiver = require('archiver');
+var fs = require('fs');
 
-module.exports = function (file, options) {
-  var archive = archiver(file, options);
+module.exports = function (file, format, options) {
+  var output = fs.createWriteStream(file);
+  var archive = archiver(format, options);
   var done;
   var error;
   var promise;
@@ -32,6 +34,8 @@ module.exports = function (file, options) {
     throw err;
   });
 
+  archive.pipe(output);
+
   let finalize = archive.finalize;
   archive.finalize = function () {
     if (error) return Promise.reject(error);
@@ -48,3 +52,4 @@ module.exports = function (file, options) {
 
   return archive;
 };
+
