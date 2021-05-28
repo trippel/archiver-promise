@@ -6,7 +6,7 @@ Promise wrapper for archiver
 
 var archiver = require('archiver-promise');
 
-var archive = archiver('path/to/file.zip',{
+var archive = archiver('path/to/file.zip', format {
   store: true
   // more options https://archiverjs.com/docs/
 });
